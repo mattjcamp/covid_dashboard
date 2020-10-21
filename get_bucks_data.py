@@ -26,3 +26,5 @@ bucks = bucks.rename(columns={'deathCt_caller':'death_total'
 
 # Bucks death rate as of August 8, 2020
 bucks_case_rate = 7118/626370*100000
+
+bucks.to_csv(r'daily_covid_bucks.csv')
