@@ -8,10 +8,13 @@ from pandas import DataFrame
 # set parameters
 days_back = 365
 
+x = 'f' + 'a'
+x
+
 def get_county_data(zipcode):
 
     # we can only get the past 7 days for bucks county with this API
-    d = requests.get('https://localcoviddata.com/covid19/v1/cases/newYorkTimes?zipCode=19067&daysInPast=7')
+    d = requests.get('https://localcoviddata.com/covid19/v1/cases/newYorkTimes?zipCode=' + str(19067) + '&daysInPast=7')
     d = d.text
     d = pd.read_json(d)
     d = d.counties[0].get("historicData")
@@ -29,8 +32,5 @@ def get_county_data(zipcode):
     return d2
 
 b = get_county_data(19067)
-
-b
-
 
 b.to_csv(r'test.csv')
