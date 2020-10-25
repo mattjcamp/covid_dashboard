@@ -13,4 +13,4 @@ if r.ok:
     data = r.content.decode('utf8')
     df = pd.read_csv(io.StringIO(data))
 
-df.to_csv(r'daily_covid_all_counties.csv')
+df.to_csv(r'raw_download_covid_counties.csv')
