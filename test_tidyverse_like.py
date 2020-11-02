@@ -18,3 +18,11 @@ d = (diamonds >>
   group_by(X.cut, X.carat_bin) >> 
   summarize(avg_price=X.price.mean()))
   
+test =  df['deaths'] < 0
+less_than_zero = df[test]
+print(less_than_zero.shape)
+print(less_than_zero.head())
+
+test
+
+#df['deaths_fixed'] = df['deaths_new'].apply(lambda x: 'True' if x <= 0 else 'False')
