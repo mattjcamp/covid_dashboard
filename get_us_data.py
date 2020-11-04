@@ -52,3 +52,4 @@ us = clean_covidtracking_api_data(us)
 us.to_csv(r'daily_covid_us.csv')
 
 
+
