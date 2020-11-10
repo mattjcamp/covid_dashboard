@@ -17,6 +17,9 @@ df = df.join(diff, lsuffix='_cumm', rsuffix='_new')
 df.loc[df.groupby(['state','county'])['cases_new'].head(1).index, 'cases_new'] = 0
 df.loc[df.groupby(['state','county'])['deaths_new'].head(1).index, 'deaths_new'] = 0
 
-#df.head(1000).to_csv(r'temp.csv')
+# Fix Negative Cases
+df.loc[df['cases_new'] < 0, 'cases_new'] = 0
+df.loc[df['deaths_new'] < 0, 'deaths_new'] = 0
 
+# Write to CSV for Tableau visualization
 df.to_csv(r'covid_by_county.csv')
